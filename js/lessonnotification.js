@@ -138,19 +138,17 @@ $(function (){
         console.log("pagination array:")
         console.log(makeunreadarray())
   
-        function display(atbat,listContainer,rowsCount,currentPage){    
+        function display(lesson,listContainer,rowsCount,currentPage){    
           listContainer.empty()
           let endIndex = rowsCount * currentPage
           let startIndex = endIndex - rowsCount
           
-          let paginatedUsers = atbat.slice(startIndex, endIndex)
-          console.log("pagination array:")
-          console.log(paginatedUsers)
+          let paginatedUsers = lesson.slice(startIndex, endIndex)
+          // console.log("pagination array:")
+          // console.log(paginatedUsers)
           $.each(paginatedUsers, function(i, service){
-              console.log('time: '+service.startTime);
-              console.log('read: '+service.isReadNotification);
               
-              var id = service.positionId;
+              var id = service.id;
               var time = service.startTime;
                   time = time.replace(/:/g,""); 
               var date = service.reservationDate;
@@ -183,7 +181,8 @@ $(function (){
   
                 var id = $(this).attr('data-id');
                 var kind = $(this).attr('data-kind');
-                
+                console.log(id)
+                console.log(kind)
                 if(kind === "cancel"){
                   var readurl = "http://210.99.223.38:30000/rest/v1/position/notification/read-cancel";
                 }
@@ -321,11 +320,12 @@ $(function (){
           .then(response => response.json())
           .then(response =>{    
             console.log(response.message);
-            display(getData(),$userListContainer,rows,cpage);
+            display(makeunreadarray(),$userListContainer,rows,cpage);
           })
           .catch(err => console.error(err)); 
         }
-                
+        
+        console.log(getData())
         var prev_count  = localStorage.current;
         display(makeunreadarray(),$userListContainer,rows,cpage)
         setupPagination(getData(),$paginationContainer, rows) 

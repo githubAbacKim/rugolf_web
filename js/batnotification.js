@@ -266,7 +266,7 @@ let rows = 6;
         .then(response => response.json())
         .then(response =>{    
           console.log(response.message);
-          display(getData(),$userListContainer,rows,cpage);
+          display(makeunreadarray(),$userListContainer,rows,cpage);
         })
         .catch(err => console.error(err)); 
       }
