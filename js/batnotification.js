@@ -86,8 +86,7 @@ let rows = 6;
         let startIndex = endIndex - rowsCount
         
         let paginatedUsers = atbat.slice(startIndex, endIndex)
-        console.log("pagination array:")
-        console.log(paginatedUsers)
+        
         $.each(paginatedUsers, function(i, service){
             console.log('time: '+service.startTime);
             console.log('read: '+service.isReadNotification);
@@ -98,7 +97,7 @@ let rows = 6;
             var date = service.reservationDate;
                 date = date.replace(/-/g,"");
             var divId = id+date.substr(4,4)+time.substr(0,5); 
-            
+            console.log(divId)
             if(service.kind === "cancel"){
               var kindstat = "예약을 취소하셨습니다";
             }
@@ -277,8 +276,8 @@ let rows = 6;
       setInterval(function(){    
         if(localStorage.current > prev_count || localStorage.current < prev_count){
           console.log('data has been auto update!');
-          display(getData(),$userListContainer,rows,cpage);  
-          setupPagination(getData(),$paginationContainer, rows);
+          display(makeunreadarray(),$userListContainer,rows,cpage);  
+          setupPagination(makeunreadarray(),$paginationContainer, rows);
           prev_count = localStorage.current;
         }
       }, 1000);

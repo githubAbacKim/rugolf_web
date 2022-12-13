@@ -332,8 +332,8 @@ $(function (){
         setInterval(function(){    
           if(localStorage.current > prev_count || localStorage.current < prev_count){
             console.log('data has been auto update!');
-            display(getData(),$userListContainer,rows,cpage);  
-            setupPagination(getData(),$paginationContainer, rows);
+            display(makeunreadarray(),$userListContainer,rows,cpage);  
+            setupPagination(makeunreadarray(),$paginationContainer, rows);
             prev_count = localStorage.current;
           }
         }, 1000);  
