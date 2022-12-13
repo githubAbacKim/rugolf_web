@@ -184,10 +184,10 @@ $(function (){
                 console.log(id)
                 console.log(kind)
                 if(kind === "cancel"){
-                  var readurl = "http://210.99.223.38:30000/rest/v1/position/notification/read-cancel";
+                  var readurl = "http://210.99.223.38:30000/rest/v1/lesson/notification/read-cancel";
                 }
                 else if(kind === "reservation"){
-                  var readurl = "http://210.99.223.38:30000/rest/v1/position/notification/read";
+                  var readurl = "http://210.99.223.38:30000/rest/v1/lesson/notification/read";
                 }
                 var data = {
                   "id": id
