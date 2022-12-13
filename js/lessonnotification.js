@@ -156,10 +156,10 @@ $(function (){
               var divId = id+date.substr(4,4)+time.substr(0,5); 
               
               if(service.kind === "cancel"){
-                var kindstat = "예약을 취소하셨습니다";
+                var kindstat = "수업이 취소되었습니다!";
               }
               else if (service.kind === "reservation"){
-                var kindstat = "새로운 타석예약이 있어요!";
+                var kindstat = "새로운 레슨 예약이 있습니다!";
               }
               
               data = {
