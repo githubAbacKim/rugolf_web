@@ -328,7 +328,7 @@ $(function (){
         console.log(getData())
         var prev_count  = localStorage.current;
         display(makeunreadarray(),$userListContainer,rows,cpage)
-        setupPagination(getData(),$paginationContainer, rows) 
+        setupPagination(makeunreadarray(),$paginationContainer, rows) 
         setInterval(function(){    
           if(localStorage.current > prev_count || localStorage.current < prev_count){
             console.log('data has been auto update!');

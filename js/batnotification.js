@@ -23,7 +23,7 @@ var batTemplate = "" +
 var buttonTemplate = "<button class ></button>";
 
 let cpage = 1;
-let rows = 6;
+let rows = 3;
 
       // lesson notification data
       function getData(){
@@ -272,7 +272,7 @@ let rows = 6;
       console.log(getData());
       var prev_count  = localStorage.current;
       display(makeunreadarray(),$userListContainer,rows,cpage)
-      setupPagination(getData(),$paginationContainer, rows) 
+      setupPagination(makeunreadarray(),$paginationContainer, rows) 
       setInterval(function(){    
         if(localStorage.current > prev_count || localStorage.current < prev_count){
           console.log('data has been auto update!');
